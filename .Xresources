@@ -1,5 +1,4 @@
 ld: #a8a19f
-*cursor: #a8a19f
 *background:       #1b1918
 !*background: rgba(0, 0, 0, .7)
 
@@ -35,19 +34,16 @@ URxvt.font: 		xft:monospace:size=11
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
 URxvt*foreground:       white
+
 !! Extensions
-URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.perl-ext-common:	default,matcher,keyboard-select
 URxvt.colorUL:		#4682B4
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: webview
+URxvt.url-select.launcher: qutebrowser
 URxvt.url-select.underline: true
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
-!! resize-font
-URxvt.resize-font.smaller:	C-Down
-URxvt.resize-font.bigger:	C-Up
 !! Matcher
-URxvt.url-launcher:	webview
+URxvt.url-launcher:	qutebrowser
 URxvt.matcher.button:	1
-
