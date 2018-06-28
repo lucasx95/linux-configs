@@ -165,6 +165,22 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -177,12 +193,10 @@ focus_follows_mouse no
 
 # Custom bindings
 bindsym $mod+Shift+x exec sh ~/.config/i3/lock_screen.sh 
-bindsym $mod+Shift+p workspace $ws_vpn; exec urxvt -e sudo openconnect --user=bekto001 --passwd-on-stdin useast1vpn.staples.com
-bindsym $mod+Shift+u workspace $ws_voice; exec sh ~/.config/i3/uber_conference.sh
-bindsym $mod+Shift+y workspace $ws_slack; exec qutebrowser --targe window 'https://kistech.atlassian.net/secure/RapidBoard.jspa?projectKey=WEL&rapidView=3&view=planning'
+# bindsym $mod+Shift+p workspace $ws_vpn; exec urxvt -e sudo openconnect --user=bekto001 --passwd-on-stdin useast1vpn.staples.com
+bindsym $mod+Shift+u workspace $ws_voice; exec uber_conference
+bindsym $mod+Shift+y exec google-chrome --app='http://kistech.atlassian.net/secure/RapidBoard.jspa?projectKey=WEL&rapidView=4'
 bindsym $mod+Shift+w workspace $ws_music; exec "pgrep pavucontrol || pavucontrol"
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
 
 # Spotify shortcuts
 bindsym $mod+Shift+d exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
@@ -196,4 +210,4 @@ exec --no-startup-id spotify
 exec --no-startup-id slack
 exec --no-startup-id i3-msg 'workspace $ws_slack; layout stacking; exec qutebrowser --target window https://outlook.office365.com/owa/?realm=kissolutions.tech&exsvurl=1&ll-cc=1033&modurl=0'
 exec --no-startup-id nm-applet
-exec_always setxkbmap -model abnt2 -layout br
+exec --no-startup-id xrandr --output HDMI-0 --left-of DP-1

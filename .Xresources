@@ -28,7 +28,7 @@ ld: #a8a19f
 *color15: #f1efee
 
 URxvt.intensityStyles:	false
-URxvt.background:       [78]#000000
+URxvt.background:       [77777770]#000000
 URxvt.depth:		32
 URxvt.font: 		xft:monospace:size=11
 URxvt.scrollBar:	false
@@ -40,10 +40,10 @@ URxvt.perl-ext-common:	default,matcher,keyboard-select
 URxvt.colorUL:		#4682B4
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: qutebrowser
+URxvt.url-select.launcher: google-chrome 
 URxvt.url-select.underline: true
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 !! Matcher
-URxvt.url-launcher:	qutebrowser
+URxvt.url-launcher:	google-chrome
 URxvt.matcher.button:	1
