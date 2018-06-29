@@ -184,7 +184,7 @@ bindsym $mod+Pause mode "$mode_system"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
 }
 
@@ -192,7 +192,7 @@ bar {
 focus_follows_mouse no
 
 # Custom bindings
-bindsym $mod+Shift+x exec sh ~/.config/i3/lock_screen.sh 
+bindsym $mod+Shift+x exec personal_lock
 # bindsym $mod+Shift+p workspace $ws_vpn; exec urxvt -e sudo openconnect --user=bekto001 --passwd-on-stdin useast1vpn.staples.com
 bindsym $mod+Shift+u workspace $ws_voice; exec uber_conference
 bindsym $mod+Shift+y exec google-chrome --app='http://kistech.atlassian.net/secure/RapidBoard.jspa?projectKey=WEL&rapidView=4'
@@ -204,6 +204,12 @@ bindsym $mod+Shift+g exec git-tools
 bindsym $mod+Shift+d exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym $mod+Shift+a exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym $mod+Shift+s exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@  toggle # mute sound
+
 
 # Startup programs
 exec --no-startup-id compton
