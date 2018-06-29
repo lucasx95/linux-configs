@@ -198,7 +198,6 @@ bindsym $mod+Shift+u workspace $ws_voice; exec uber_conference
 bindsym $mod+Shift+y exec google-chrome --app='http://kistech.atlassian.net/secure/RapidBoard.jspa?projectKey=WEL&rapidView=4'
 bindsym $mod+Shift+w workspace $ws_music; exec "pgrep pavucontrol || pavucontrol"
 bindsym $mod+g workspace "Git"
-bindsym $mod+Shift+g exec git-tools
 
 # Spotify shortcuts
 bindsym $mod+Shift+d exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"

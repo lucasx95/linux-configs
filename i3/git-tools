@@ -1,9 +1,10 @@
-
+#!/bin/bash
+# Display a list of the repositories within ~/workspace and open git tools for the selected one.
 cd ~/workspace
 repositories_list=($(ls -d */))
 repositories=$(echo "${repositories_list[@]}")
 repository=$(zenity --title "Git Tools" --list --text "Select repository" --column "Repository" $repositories) || exit
-i3-msg "workspace Git; layout splitv;"
+i3-msg "layout splitv;"
 cd $repository
 git gui &
 gitk --all &
