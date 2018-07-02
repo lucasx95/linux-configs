@@ -6,6 +6,7 @@ repositories=$(echo "${repositories_list[@]}")
 repository=$(zenity --title "Git Tools" --list --text "Select repository" --column "Repository" $repositories) || exit
 i3-msg "layout splitv;"
 cd $repository
+git fetch &
 git gui &
 gitk --all &
 
