@@ -133,7 +133,7 @@ assign [class="Steam"] $ws_steam
 for_window [class="Spotify"] move to workspace $ws_music
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -193,9 +193,11 @@ focus_follows_mouse no
 
 # Custom bindings
 bindsym $mod+Shift+x exec personal_lock
-# bindsym $mod+Shift+p workspace $ws_vpn; exec urxvt -e sudo openconnect --user=bekto001 --passwd-on-stdin useast1vpn.staples.com
+bindsym $mod+Shift+p workspace $ws_vpn; exec urxvt -e sudo openconnect --user=bekto001 --passwd-on-stdin useast1vpn.staples.com
 bindsym $mod+Shift+u workspace $ws_voice; exec uber_conference
 bindsym $mod+Shift+y exec google-chrome --app='http://kistech.atlassian.net/secure/RapidBoard.jspa?projectKey=WEL&rapidView=4'
+bindsym $mod+Shift+c exec google-chrome --app='https://outlook.office365.com/owa/?realm=kissolutions.tech&exsvurl=1&ll-cc=1033&modurl=1&path=/calendar/view/Month'
+bindsym $mod+Shift+t exec google-chrome --app='https://outlook.office365.com/owa/?realm=kissolutions.tech&exsvurl=1&ll-cc=1033&modurl=0'
 bindsym $mod+Shift+w workspace $ws_music; exec "pgrep pavucontrol || pavucontrol"
 bindsym $mod+g workspace "Git"
 bindsym $mod+Shift+g exec git-tools
